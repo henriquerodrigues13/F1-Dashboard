@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "f1_dashboard"
+version = "0.1.0"
+dependencies = [
+    "fastapi>=0.100",
+    "uvicorn>=0.23",
+    "sqlalchemy>=2.0",
+    "python-dotenv>=1.0",
+    "sqlalchemy-utils>=0.41",
+    "fastapi[standard]>=0.112.0",
+    "pandas>=3.0.3"
+]
+
+[tool.setuptools.packages.find]
+exclude = ["frontend*", "docker*", "data*"]
