@@ -15,7 +15,7 @@ def transform_dataframe():
     df_constructors = pd.read_sql("SELECT * FROM raw.constructors", con=engine)
     df_constructors.columns =['id_construtora', 'nome','nacionalidade', 'url']
     df_constructors.drop(columns=['url'], inplace=True)
-    df_driver_standings = pd.read_sql("SELECT * FROM raw.drivers_standings", con=engine)
+    df_driver_standings = pd.read_sql("SELECT * FROM raw.driver_standings", con=engine)
     df_driver_standings.columns = ['edição', 'posicao', 'pontos','vitorias', 'id_corredor', 'construtora']
     df_driver_standings.dropna(subset=['posicao'], inplace=True)
     df_drivers = pd.read_sql("SELECT * FROM raw.drivers", con=engine)
@@ -24,7 +24,7 @@ def transform_dataframe():
     df_drivers['data_de_nascimento'] = pd.to_datetime(df_drivers['data_de_nascimento'], errors='coerce')
     df_qualifying = pd.read_sql("SELECT * FROM raw.qualifying", con=engine)
     df_qualifying.columns = ['edição', 'etapa', 'id_corredor', 'id_construtora', 'posição', 'Q1', 'Q2', 'Q3']
-    df_race = pd.read_sql("SELECT * FROM raw.race", con=engine)
+    df_race = pd.read_sql("SELECT * FROM raw.races", con=engine)
     df_race.columns = ['edicao', 'etapa', 'nome_da_corrida','id_do_circuito','data_da_corrida','horario', 'url']
     df_race.drop(columns=['url'], inplace=True)
     df_race['data_da_corrida'] = pd.to_datetime(df_race['data_da_corrida'])

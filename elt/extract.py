@@ -1,4 +1,4 @@
-from config import RAW_DIR
+from elt.config import RAW_DIR
 from pathlib import Path
 import pandas as pd
 

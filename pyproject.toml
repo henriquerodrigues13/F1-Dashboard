@@ -12,7 +12,9 @@ dependencies = [
     "python-dotenv>=1.0",
     "sqlalchemy-utils>=0.41",
     "fastapi[standard]>=0.112.0",
-    "pandas>=3.0.3"
+    "pandas>=3.0.3",
+    "psycopg2-binary",
+    "pyarrow"
 ]
 
 [tool.setuptools.packages.find]
