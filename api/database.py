@@ -51,7 +51,7 @@ class corredor(Base):
     __tablename__ = "corredor"
 
     id : Mapped[int] = mapped_column(Integer, primary_key=True, autoincrent=True)
-    id_corredora: Mapped[str] = mapped_column(String(15))
+    id_corredor: Mapped[str] = mapped_column(String(15))
     nome_informado: Mapped[str] = mapped_column(String(15))
     nome_familia: Mapped[str] = mapped_column(String(15))
     data_nascimento: Mapped[date] = mapped_column(Date)
