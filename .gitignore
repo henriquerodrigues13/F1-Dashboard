@@ -57,6 +57,7 @@ coverage.xml
 # Virtual Environments
 # ============================================
 venv/
+.venv-wsl/
 env/
 ENV/
 env.bak/
