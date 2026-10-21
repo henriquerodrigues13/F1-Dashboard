@@ -16,14 +16,14 @@ def transform_dataframe():
     df_constructors.columns =['id_construtora', 'nome','nacionalidade', 'url']
     df_constructors.drop(columns=['url'], inplace=True)
     df_driver_standings = pd.read_sql("SELECT * FROM raw.driver_standings", con=engine)
-    df_driver_standings.columns = ['edição', 'posicao', 'pontos','vitorias', 'id_corredor', 'construtora']
-    df_driver_standings.dropna(subset=['posicao'], inplace=True)
+    df_driver_standings.columns = ['edicao', 'posicao_final', 'pontos','vitorias', 'id_corredor', 'construtora']
+    df_driver_standings.dropna(subset=['posicao_final'], inplace=True)
     df_drivers = pd.read_sql("SELECT * FROM raw.drivers", con=engine)
     df_drivers.columns = ['id_corredor', 'nome_informado', 'nome_de_familia','data_de_nascimento','nacionalidade','numero','codigo','url']
     df_drivers.drop(columns=['url'], inplace=True)
     df_drivers['data_de_nascimento'] = pd.to_datetime(df_drivers['data_de_nascimento'], errors='coerce')
     df_qualifying = pd.read_sql("SELECT * FROM raw.qualifying", con=engine)
-    df_qualifying.columns = ['edição', 'etapa', 'id_corredor', 'id_construtora', 'posição', 'Q1', 'Q2', 'Q3']
+    df_qualifying.columns = ['edicao', 'etapa', 'id_corredor', 'id_construtora', 'posicao', 'Q1', 'Q2', 'Q3']
     df_race = pd.read_sql("SELECT * FROM raw.races", con=engine)
     df_race.columns = ['edicao', 'etapa', 'nome_da_corrida','id_do_circuito','data_da_corrida','horario', 'url']
     df_race.drop(columns=['url'], inplace=True)

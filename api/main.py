@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 from api.database import *
 from fastapi import FastAPI
 from api import rotas
-
 import logging
 
 @asynccontextmanager
@@ -61,7 +60,7 @@ def init_db():
     with Session(engine) as session:
         for file in os.listdir(caminho):
 
-            total = session.scalar(select(func.count().select_from(tabelas[mapa_tabelas[file]])))
+            total = session.scalar(select(func.count()).select_from(tabelas[mapa_tabelas[file]]))
 
             if total != 0:
                 logging.info(f"tabela: {mapa_tabelas[file]} já está populada")
